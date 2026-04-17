@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}رستوران ایرانی برلین{% endblock title %}
+{% block context %}
+    <!-- header -->
+    <header id="home" class="header">
+        <div class="overlay text-white text-center">
+            <h1 class="display-2 font-weight-bold my-3">رستوران ایرانی</h1>
+            <h2 class="display-4 mb-5">تر و تازه وگرم </h2>
+            <a class="btn btn-lg btn-primary" href="#gallary">منوی رستوران</a>
+            
+        </div>
+    </header>
+    <!--  About Section  -->
+    <div id="about" class="container-fluid wow fadeIn" id="about"data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6 has-img-bg">
+                
+            </div>
+            <div class="col-lg-6" style='text-align:right;'>
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5">
+                        <h2 class="mb-4">درباره ما</h2>
+                        <p>ما یک رستوران ایرانی در قلب برلین هستیم هدف ما اینه که با خوراک های ایرانی به ایران سفر کنم و یاد و خاطره ایران را زنده کنیم. <br></p>
+                        <p><b>ما میخواهیم کل دنیا غذاهای خوشمزه ایرانی را بچشد و با فرهنگ ما آشنا شود خوراک ایرانی بخشی از فرهنگ ماست.سرآشپز های ما با دستپخت بی نظیر خود شمارا به ایران میبرند</b></p>
+                        <p>پیک رستوران ما از 12 ظهر تا 12 شب در خدمت شماست ارسال به سراسر شهر برلین</p>
+                        <p>رعایت پروتکل های بهداشتی در مجموعه ما اولویت همیشگی ماست</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!--  gallary Section  -->
+    <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
+        <h2 class="section-title">منوی رستوران</h2>
+    </div>
+    <div class="gallary row">
+        {% for post in posts %}
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="{{post.image.url}}" height='300px' width='400px'>
+            <a href="{{post.id}}" class="gallary-overlay">
+                <i class="gallary-icon ti-plus"></i>
+            </a>
+        </div>{% endfor %}
+    </div>
+    <br><br><br>
+   <div id='blog' class="menu-filter-container text-center my-4">
+    
+    <input type="radio" id="filter-iranifood" name="category">
+    <input type="radio" id="filter-fastfood" name="category">
+    <input type="radio" id="filter-salad" name="category" checked> <!-- دستور checked اینجا اضافه شد -->
+
+    <!-- ۲. دکمه‌های ظاهری فیلتر -->
+    <div class="filter-buttons mb-4">
+        <label for="filter-iranifood" class="btn btn-outline-primary filter-btn">غذای ایرانی</label>
+        <label for="filter-fastfood" class="btn btn-outline-primary filter-btn">فست فود</label>
+        <label for="filter-salad" class="btn btn-outline-primary filter-btn">سالاد</label>
+    </div>
+
+    <!-- ۳. لیست غذاها -->
+    <div class="gallary row text-center">
+        {% for post in posts %}
+        <div class="col-sm-6 col-lg-3 gallary-item {{ post.type }} wow fadeIn" style="margin-bottom: 20px;">
+            <img src="{{post.image.url}}" height='300px' width='400px' style="object-fit: cover; border-radius: 10px;">
+            <br>
+            <h4 class="mt-2">{{ post.name }}</h4>
+            <p class="text-muted">{{ post.price }} تومان</p>
+            <a href="{{post.id}}" class="btn btn-sm btn-secondary">جزئیات</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+    <!-- CONTACT Section  -->
+    <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
+        <div class="row">
+            <div class="col-md-6 px-0">
+                <div id="map" style="width: 100%; height: 100%; min-height: 400px"></div>
+            </div>
+            <div class="col-md-6 px-5 has-height-lg middle-items">
+                <h3>FIND US</h3>
+                <p style='text-align:right;'>اگر قصد همکاری و معرفی رستوران مارا دارید با ماتماس بگیرید بسیار خوشحال خواهیم شدبسر مفتحریم با سرآشپز های ایرانی در سایر شهرهای آلمان همکاری کنیم.</p>
+                <div class="text-muted">
+                    <p><span class="ti-location-pin pr-3"></span> 12345 Fake ST NoWhere, AB Country</p>
+                    <p><span class="ti-support pr-3"></span> (98) 9309868883</p>
+                    <p><span class="ti-email pr-3"></span>info@website.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ {% endblock context %}

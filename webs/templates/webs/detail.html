@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% block title %}{{posts.name}}{% endblock title %}
+{% block context %}
+
+<section class="blog-list px-3 py-5 p-md-5">
+	<div class="container" style='display:flex;gap:20px;'>
+		<img class="title mb-1" src="{{posts.image.url}}"  style='width:50%;height:100vh;'>
+        <div class="item mb-5">
+			<br><br><br>
+            {% comment %} <div class="media-body" > {% endcomment %}
+							<h3 class="title mb-1"style='text-align:right;' >{{posts.name}}</h3 >
+                            <hr>
+							<h5 class="time" style='text-align:right;'>{{posts.text}}</h5 >
+							<br>
+							<br>
+							<h2>{{posts.price}}تومان</h2>
+							<p>زما آماده سازی: {{posts.time}}دقیقه</p>
+			{% comment %} </div><!--//media-body--> {% endcomment %}
+			<hr>
+	    </div><!--//item-->
+    </div>
+</section>
+
+			    
+			   
+{% endblock context %}
+    

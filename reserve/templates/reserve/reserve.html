@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}reserve{% endblock title %}
+{% block context %}
+<br><br><br>
+<br><br><br>
+<br><br><br>
+ <div class="container" style="text-align: left;"> 
+    
+	<form method='POST'>
+								
+    {% csrf_token %}
+	
+    {{form.as_p}}
+							
+	<button type='submit' class='btn btn-primary'>
+	رزرو
+	</button>
+
+</div>
+			   
+{% endblock context %}
+    
