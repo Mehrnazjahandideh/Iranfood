@@ -138,5 +138,6 @@ LOGIN_REDIRECT_URL='home'
 LOGAUT_REDIRECT_URL='home'
 SIGNUP_REDIRECT_URL='home'
 
+ALLOWED_HOSTS = ['yourusername.pythonanywhere.com', '127.0.0.1']
 
 # EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
